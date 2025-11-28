@@ -1,4 +1,8 @@
 name: Deploy to GitHub Pages
+permissions:
+  contents: read    # allow workflows to read repository contents
+  pages: write      # allow workflow to push to gh-pages branch
+  id-token: write   # required for some auth flows
 on:
   push:
     branches:
@@ -15,6 +19,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # Don't persist the default GITHUB_TOKEN in the checked-out repo's git config.
+          # The deploy action will use the token it needs to push — this helps avoid permission conflicts.
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -38,4 +46,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # If your repo blocks GITHUB_TOKEN from pushing (403), create a personal
+          # access token with `repo` scope, add it to repository secrets (e.g. GH_PAGES_DEPLOY_TOKEN)
+          # and then set `github_token: ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}` here.
           publish_dir: ${{ env.BUILD_DIR }}
