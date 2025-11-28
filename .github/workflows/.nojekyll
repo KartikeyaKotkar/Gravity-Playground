@@ -1,2 +1,3 @@
-# Prevent GitHub Pages from running Jekyll processing
-# (leave this file empty)
+# (moved) Prevent GitHub Pages from running Jekyll processing
+# Original file was misplaced under .github/workflows — the canonical file is at the repo root
+# Leave this file empty in the published branch; kept here for historical reasons.

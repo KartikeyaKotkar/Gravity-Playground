@@ -45,7 +45,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.gravity_playground }}
           # If your repo blocks GITHUB_TOKEN from pushing (403), create a personal
           # access token with `repo` scope, add it to repository secrets (e.g. GH_PAGES_DEPLOY_TOKEN)
           # and then set `github_token: ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}` here.

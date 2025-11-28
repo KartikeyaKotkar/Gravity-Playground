@@ -1,0 +1,46 @@
+# Node modules
+node_modules/
+
+# Build output (Vite/CRA/etc.)
+dist/
+build/
+out/
+
+# Dependency lock files - keep package-lock.json in repo for reproducible builds
+# (do not ignore package-lock.json if you want CI to use npm ci)
+
+# Environment files
+.env
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors/IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Coverage and test artifacts
+coverage/
+.playwright/
+
+# Caches/temporary
+.cache/
+.vite/
+
+# Deployment artifacts
+gh-pages/
+
+# Ignore local install artifacts
+/.turbo/
