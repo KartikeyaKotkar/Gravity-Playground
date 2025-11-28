@@ -24,7 +24,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm ci
+          # Prefer a lockfile install; if none exists fall back to a normal install
+          npm ci || npm install
         # If you use yarn: run: yarn install --frozen-lockfile
         # If you use pnpm: run: pnpm install --frozen-lockfile
 
