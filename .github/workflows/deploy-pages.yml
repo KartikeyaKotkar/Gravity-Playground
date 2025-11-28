@@ -1,6 +1,6 @@
 name: Deploy to GitHub Pages
 permissions:
-  contents: read    # allow workflows to read repository contents
+  contents: write    # allow workflows to read repository contents
   pages: write      # allow workflow to push to gh-pages branch
   id-token: write   # required for some auth flows
 on:
