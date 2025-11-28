@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+      - master
+
+env:
+  NODE_VERSION: '18'
+  BUILD_DIR: 'dist' # change to 'build' for CRA, 'public' for Gatsby, 'out' for Next export, etc.
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+        # If you use yarn: run: yarn install --frozen-lockfile
+        # If you use pnpm: run: pnpm install --frozen-lockfile
+
+      - name: Build site
+        run: |
+          npm run build
+        # Change to: yarn build  or pnpm build as needed
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ env.BUILD_DIR }}
