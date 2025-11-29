@@ -2,6 +2,10 @@
 
 A browser-based 2D gravity simulation built with vanilla JavaScript and HTML5 Canvas. Create solar systems, experiment with orbital mechanics, and explore exotic phenomena like black holes, white holes, and wormholes.
 
+![alt text](image.png "Screenshot")
+
+
+
 ## Features
 
 - **Newtonian Physics**: Real-time gravitational interactions between celestial bodies
