@@ -69,3 +69,30 @@ src/
 ## License
 
 MIT License - feel free to use this project for learning or experimentation.
+
+## Deployment / GitHub Pages ✅
+
+This repository is ready to be hosted on GitHub Pages. A GitHub Actions workflow has been added (in `.github/workflows/pages.yml`) which will automatically publish the repository root to GitHub Pages every time you push to `main`.
+
+Quick notes:
+
+- If you want to publish the repository as a project site (URL like `https://<username>.github.io/Gravity-Playground`), you don't need any builds — the workflow will deploy the repo root automatically.
+- If you'd rather host from the repository settings directly, you can go to Settings → Pages and choose the `main` branch / root.
+
+Local preview:
+
+You can preview the site locally with a simple HTTP server (do NOT just open the file with the `file://` protocol in some browsers):
+
+Windows (PowerShell):
+```powershell
+python -m http.server 8000
+# then open http://localhost:8000 in your browser
+```
+
+Or with Node if you have http-server installed:
+```powershell
+npx http-server . -p 8000
+# then open http://localhost:8000
+```
+
+Once pushed to `main`, check the Actions tab to confirm the `Deploy to GitHub Pages` workflow ran successfully. The published URL will appear in the Pages settings when the job finishes.
